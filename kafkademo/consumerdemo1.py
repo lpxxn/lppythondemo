@@ -32,7 +32,7 @@ def main():
     for t in tasks:
         t.start()
 
-    time.sleep(20)
+    time.sleep(600)
 
     for task in tasks:
         task.stop()
