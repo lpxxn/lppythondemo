@@ -2,6 +2,10 @@ from kafka import KafkaConsumer
 import multiprocessing, time
 
 
+
+topiconline = "useronlinestatus"
+topicmsgcount = "uidsendmsgcount"
+
 class Consumer(multiprocessing.Process):
     def __init__(self):
         multiprocessing.Process.__init__(self)
@@ -14,7 +18,7 @@ class Consumer(multiprocessing.Process):
         consumer = KafkaConsumer(bootstrap_servers=['rr-kafka-0001:9092', 'rr-kafka-0002:9092', 'rr-kafka-0003:9092'],
                                  auto_offset_reset='earliest',
                                  consumer_timeout_ms=1000 * 2)
-        consumer.subscribe(['useronlinestatus'])
+        consumer.subscribe([topiconline, topicmsgcount])
         while not self.stop_event.is_set():
             for message in consumer:
                 print(message)
