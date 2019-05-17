@@ -46,3 +46,14 @@ export VENVS=path/to/virtualenv_home
 workon env
 pip install -r requirements.txt
 ```
+
+## vs code 
+```
+workon env3
+/Users/lipeng/pyworkspace/env3/bin/python
+```
+```
+command shift p
+worksapce setting
+python.pythonPath =/Users/lipeng/pyworkspace/env3/bin/python
+```
