@@ -1,0 +1,46 @@
+version: '3'
+services:
+  my-redis:
+    image: redis
+    volumes:
+      - redis-db-data:/data    
+    networks:
+      - lp-test-ns
+    deploy:
+      mode: global
+      placement:
+        constraints: [node.role == manager]    
+
+  web:
+    image: pyweb:1.0
+    ports:
+      - 11001:5000    
+    networks:
+      - lp-test-ns
+    depends_on:
+      - my-redis
+    environment:
+      REDIS_HOST: my-redis
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 1
+      restart_policy:
+        condition: on-failure
+
+  # visualizer:
+  #   image: dockersamples/visualizer:stable
+  #   ports:
+  #     - "8080:8080"
+  #   stop_grace_period: 1m30s
+  #   volumes:
+  #     - "/var/run/docker.sock:/var/run/docker.sock"
+  #   deploy:
+  #     placement:
+  #       constraints: [node.role == manager]
+
+networks:
+  lp-test-ns:
+
+volumes:
+  redis-db-data:
