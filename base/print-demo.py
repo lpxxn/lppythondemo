@@ -56,4 +56,19 @@ print(issubclass(bool, int))
 
 print(issubclass(B, A))
 
+# String
+str = '一二三四五六七八'
+print(str)
+print(str[0:-1]) # 第一个到倒数第二个
+print("1:3", str[1:3])
+'''+ 是连接字符串 *: 复制字符串'''
+print("+", str + " !!!")
+print("*", str * 2)
 
+threeSingleQuote = '''\'\'\''''
+threeQuote = '''\"\"\"'''
+
+print('''\n 是转义,如果不想让\发生转义,可以在字符串前加上r,表示原始字符串, 也可以使用{0}...{0} 或者"""...""" :'''.format(threeSingleQuote))
+
+print('hello\n haha', r'hello\n haha')
+print(str[0], str[2], str[-1], str[-2])
