@@ -72,3 +72,5 @@ print('''\n 是转义,如果不想让\发生转义,可以在字符串前加上r,
 
 print('hello\n haha', r'hello\n haha')
 print(str[0], str[2], str[-1], str[-2])
+
+# https://www.runoob.com/python3/python3-data-type.html
