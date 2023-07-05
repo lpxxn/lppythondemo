@@ -21,4 +21,14 @@ def reverseWord(input):
     # list[0] = 1, list[1]=2, -1 表示最后一个 list[-1]=4( equals list[3] = 4)
     # inputWords[-1::-1] 有三个元素
     # 第一个参数-1 表示最后一个元素
-    # 第二个为空,表示
+    # 第二个为空,表示 移到到列表末尾
+    # 第三个参数为步长，-1 表示逆向
+    inputWords = inputWords[-1::-1]
+
+    output = ' '.join(inputWords)
+    return output
+
+if __name__ == "__main__":
+    input = 'I like runoob'
+    rw = reverseWord(input)
+    print(rw)
