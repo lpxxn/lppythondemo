@@ -14,8 +14,8 @@ with open('cid1.csv') as f:
     reader = csv.reader(f)
     for row in reader:
         try:
-            id = int(row[0].strip())
-            print(f'type(id): {type(id)}')
+            cid = int(row[0].strip())
+            print(f'type(id): {type(cid)}')
         except ValueError:
             print(f'row[0]: {row[0]} is not int')
             continue
